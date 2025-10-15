@@ -1,55 +1,81 @@
 package com.example;
+
 import java.util.Scanner;
 
 public class TipCalculator {
-    //WRITE YOUR PROGRAM IN calculateTip
-    public static String calculateTip(int people, int percent, double cost) { //You must use these  variable in your calculations
-        //DO NOT DELETE ANY OF THE CODE BELOW      
+    // Main tip calculation method
+    public static String calculateTip(int people, int percent, double cost) {
+        double tipAmount = cost * percent / 100.0;
+        double totalWithTip = cost + tipAmount;
+        double perPersonBeforeTip = cost / people;
+        double tipPerPerson = tipAmount / people;
+        double totalPerPerson = totalWithTip / people;
+
+        // Round all values to nearest hundredth
+        tipAmount = Math.round(tipAmount * 100.0) / 100.0;
+        totalWithTip = Math.round(totalWithTip * 100.0) / 100.0;
+        perPersonBeforeTip = Math.round(perPersonBeforeTip * 100.0) / 100.0;
+        tipPerPerson = Math.round(tipPerPerson * 100.0) / 100.0;
+        totalPerPerson = Math.round(totalPerPerson * 100.0) / 100.0;
 
         String result = "-------------------------------\n" +
-                       "Total bill before tip: $" + "" + "\n" +
-                       "Total percentage: " + "" + "%\n" +
-                       "Total tip: $" + "" + "\n" +
-                       "Total Bill with tip: $" + "" + "\n" +
-                       "Per person cost before tip: $" + "" + "\n" +
-                       "Tip per person: $" + "" + "\n" +
-                       "Total cost per person: $" + "" + "\n" +
+                       "Total bill before tip: $" + cost + "\n" +
+                       "Total percentage: " + percent + "%\n" +
+                       "Total tip: $" + tipAmount + "\n" +
+                       "Total Bill with tip: $" + totalWithTip + "\n" +
+                       "Per person cost before tip: $" + perPersonBeforeTip + "\n" +
+                       "Tip per person: $" + tipPerPerson + "\n" +
+                       "Total cost per person: $" + totalPerPerson + "\n" +
                        "-------------------------------\n";
 
         return result;
     }
 
+    // Extra credit method using a loop (placeholder loop for demo)
     public static String extraCredit(int people, int percent, double cost) {
-        String result = "Extra credit not implemented";
+        String result = "";
         boolean condition = true;
-    
-        //  COPY AND PASTE YOUR PROGRAM FROM calculateTip() HERE 
-        
-        // the while loop condition is checked,
-        // and if TRUE, runs the code inside.
-        // when the code inside is done running, the condition is rechecked,
-        // and the loop repeats as long as the condition remains TRUE.
-        // when the condition becomes FALSE, it stops
 
         while (condition) {
-            //enter your code here 
-            System.out.println("placeholder");
-            condition = false;
-    
+            double tipAmount = cost * percent / 100.0;
+            double totalWithTip = cost + tipAmount;
+            double perPersonBeforeTip = cost / people;
+            double tipPerPerson = tipAmount / people;
+            double totalPerPerson = totalWithTip / people;
+
+            // Round all values to nearest hundredth
+            tipAmount = Math.round(tipAmount * 100.0) / 100.0;
+            totalWithTip = Math.round(totalWithTip * 100.0) / 100.0;
+            perPersonBeforeTip = Math.round(perPersonBeforeTip * 100.0) / 100.0;
+            tipPerPerson = Math.round(tipPerPerson * 100.0) / 100.0;
+            totalPerPerson = Math.round(totalPerPerson * 100.0) / 100.0;
+
+            result = "-------------------------------\n" +
+                    "Total bill before tip: $" + cost + "\n" +
+                    "Total percentage: " + percent + "%\n" +
+                    "Total tip: $" + tipAmount + "\n" +
+                    "Total Bill with tip: $" + totalWithTip + "\n" +
+                    "Per person cost before tip: $" + perPersonBeforeTip + "\n" +
+                    "Tip per person: $" + tipPerPerson + "\n" +
+                    "Total cost per person: $" + totalPerPerson + "\n" +
+                    "-------------------------------\n";
+
+            condition = false;  // exit loop after one run
         }
 
         return result;
     }
-    
-    
-     //TEST YOUR PROGRAM IN main
-     public static void main(String[] args) {
-        //try different values for people, percent, and cost to test your program before running test cases
-        int people=10; 
-        int percent=8;
-        double cost=10.5;              
-        //System.out.println(calculateTip(people,percent,cost));
+
+    // Main method for testing
+    public static void main(String[] args) {
+        int people = 10;
+        int percent = 8;
+        double cost = 10.5;
+
+        // Test standard method
+        System.out.println(calculateTip(people, percent, cost));
+
+        // Test extra credit
         System.out.println(extraCredit(people, percent, cost));
     }
 }
-        
